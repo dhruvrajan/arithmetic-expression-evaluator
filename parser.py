@@ -23,10 +23,22 @@ class Parser():
                 break
 
             if value in operations.keys():
+                # If operator
                 self.operator_stack.append(operations[value])
 
             elif value.isdigit():
-                # Assume only integer values
+                # Assume only integer values for now
+                self.value_stack.append(int(value))
+
+            elif value == ")":
+                value1 = self.value_stack.pop()
+                value2 = self.value_stack.pop()
+                operation = operations[self.operator_stack.pop()]
+
+                new_value = operation(value1, value2)
+
+        print("Operator Stack: ", self.operator_stack)
+        print("Value Stack: ", self.value_stack)
 
     @staticmethod
     def string_iterator(s: str):
