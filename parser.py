@@ -1,6 +1,7 @@
-__author__ = 'dhruv'
-
 import operator
+
+__author__ = 'dhruv'
+# I'm changing the style!
 
 operations = {"+": operator.add, "*": operator.mul, "-": operator.sub,
               "/": operator.truediv}
